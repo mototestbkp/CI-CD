@@ -1,6 +1,13 @@
 steps:
-- name: 'gcr.io/cloud-builders/gsutil'
-  args: ['-m', 'rsync', '-r', '.', 'gs://my-artifacts-bucket']
-
-# Specify a valid bucket for build logs
-logsBucket: 'gs://my-build-logs-bucket'
+# Step 1: Create a VM instance
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: 'bash'
+  args:
+    - -c
+    - |
+      gcloud compute instances create my-instance \
+        --zone=us-central1-a \
+        --machine-type=e2-medium \
+        --image-family=debian-11 \
+        --image-project=debian-cloud \
+        --boot-disk-size=20GB
