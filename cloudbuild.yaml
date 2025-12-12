@@ -1,0 +1,10 @@
+steps:
+  - name : 'ubuntu'
+    entrypoint: 'sh'
+    args:
+     -  '-c'
+     -  |
+        echo "cloud build triggered succesfully"
+        echo "Repository: $Repo_NAME"
+        echo "branch: $BRANCH_NAME"
+        echo "Commit ID: $COMMIT_SHA"
