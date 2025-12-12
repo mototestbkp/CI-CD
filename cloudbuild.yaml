@@ -1,4 +1,6 @@
 steps:
- - name: 'gcr.io/cloud-builders/gsutil'
-   args: ['-m', 'rsync', '-r', '.', 'gs://your-bucket-name']
-logsBucket: 'gs://your-logs-bucket'
+- name: 'gcr.io/cloud-builders/gsutil'
+  args: ['-m', 'rsync', '-r', '.', 'gs://my-artifacts-bucket']
+
+# Specify a valid bucket for build logs
+logsBucket: 'gs://my-build-logs-bucket'
