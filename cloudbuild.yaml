@@ -1,5 +1,4 @@
 steps:
-# Step 1: Create a VM instance
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'bash'
   args:
@@ -11,3 +10,6 @@ steps:
         --image-family=debian-11 \
         --image-project=debian-cloud \
         --boot-disk-size=20GB
+
+options:
+  logging: CLOUD_LOGGING_ONLY
